@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>responsive + float 1</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="../assets/css/hamburgers.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<!-- 
+===float으로 가로배치 배우기 1===
+float은 left와 right값만 있다.
+가로 길이는 1170이다. (flex로 잡을 땐 1200px)
+뜨면서 좌표는 없지만 부모의 높이를 없앤다.
+figure에 float을 줬는데 container의 높이가 없어졌다.
+(<div style="clear:both"></div> 빈박스를 주는건 옛날방식)
+그래서 container에 가상요소로 박스를 만들어 다시 높이를 만들어준다.
+
+flex는 신축성이 있지만(슬라이드가 늘어나는 현상) float은 없다. 
+-->
+
+<body>
+  <div class="Wrap">
+    <header class="header">
+      <div class="container clearfix">
+        <h1>
+          <a href="/">
+            <img src="img/grafflogo.png" alt="">
+          </a>
+        </h1>
+        <nav class="gnb">
+          <ul>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu02</a></li>
+            <li><a href="">menu03</a></li>
+            <li><a href="">menu04</a></li>
+            <li><a href="">menu05</a></li>
+          </ul>
+        </nav>
+        <div class="mopen">
+          <button class="hamburger hamburger--elastic" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+
+          <!-- https://jonsuh.com/hamburgers/ -->
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="float01">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolor perferendis iure!
+        </p>
+        <div class="container clearfix">
+          <figure>
+            <img src="img/lesedilarona01.jpg" alt="">
+          </figure>
+          <figure>
+            <img src="img/lesedilarona02.jpg" alt="">
+          </figure>
+          <figure>
+            <img src="img/lesedilarona03.jpg" alt="">
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+  </div>
+
+  <script src="../assets/js/jquery-1.12.4.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
