@@ -1,0 +1,71 @@
+/* 메뉴에 호버됬을 때 다단메뉴 꼬이는걸 css로 푼 파일 */
+.Wrap { } 
+
+/* * { outline: 1px solid #f00; }  */
+
+#header { } 
+
+#header .container { display: flex; justify-content: space-between; width: 1200px; margin: 0 auto; line-height: 100px; } 
+#header .top>ul { display: flex; gap: 30px; width: 200px; } 
+
+#header .top .right { justify-content: end; } 
+
+.gnb a {display: block;}
+
+.gnb{position: relative; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; line-height: 50px;}
+
+.gnb>ul {display: flex; width: 1200px; margin: 0 auto; text-align: center;}
+
+.gnb>ul>li {position: relative; flex: 1; border-left: 1px solid #ddd;}
+
+.gnb>ul>li:last-child{border-right: 1px solid #ddd;}
+
+/* 포지션쓰면 박스처럼 되니 따로 display:block안쓴다 */
+.gnb>ul::after{content: ""; position: absolute; top: 51px; left: 0; width: 100%; height: 0; background: lavender; z-index: 998; transition: 0.5s;}
+/* + 는 바로 밑 형제 선택자 -> ul+ 라고 하면 가상요소 자리를 선택하게 되는것인데 가상요소는 element가 아니라서 선택이 */
+.gnb>ul:hover::after{height: 250px;}
+/* border가 사라져서 1px더해서 top:51px로 써줌 */
+.gnb .sub_menu {position:absolute; top: 51px; left: 0; width: 100%; overflow: hidden; height: 0; background: lavender; z-index: 999; transition: 0.5s;}
+.gnb>ul:hover .sub_menu{height: 250px; }
+
+
+.main_visual { position:relative; height: 700px; background: #333; } 
+
+#footer { padding: 50px 0 150px 0; text-align: center; } 
+
+@media(max-width:768px) {
+  .Wrap { } 
+
+  #header { } 
+
+  #header .container { display: flex; justify-content: space-between; flex-wrap:wrap; width: auto; margin: 0 auto; line-height: 100px; } 
+  #header .top>ul { display: flex; gap: 30px; width: 50%; order: -1; line-height: 30px; border-bottom: 1px solid #ddd; padding: 0 15px; font-size: 13px;} 
+
+  #header .top .right { justify-content: end; } 
+
+  #header h1 {padding: 0 15px;}
+
+  .gnb a {display: block;}
+
+  .gnb{position: fixed; top: 0; left: 0; border-top: none; border-bottom: none; border-right: 1px solid #ddd; background: #fff; width: calc(100% - 90px);  height: 100vh; line-height: 40px; padding: 90px 15px 0 15px; z-index: 999; }
+
+  .gnb>ul {display: flex; flex-direction: column; width: auto; margin: 0 auto; text-align: left;}
+
+  .gnb>ul>li {position: relative; flex: 1; border-left: none; border-bottom: 1px solid #ddd;}
+
+  .gnb>ul>li:last-child{border-right: none;}
+
+
+  .gnb>ul::after{ display: none; }
+  
+  .gnb>ul:hover::after{height: 250px;}
+
+  .gnb .sub_menu {display: none; position:static; top: 51px; left: 0; width: 100%; overflow: hidden; height: auto; background: #f1f1f1; z-index: 999; transition: none;}
+  .gnb>ul:hover .sub_menu{ height: auto; }
+
+
+  .main_visual { position:relative; height: 700px; background: #333; } 
+
+  #footer { padding: 50px 0 150px 0; text-align: center; } 
+}
+
